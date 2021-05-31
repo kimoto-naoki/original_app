@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :loged_in?
+  before_action :login_check
   before_action :current_user
 
   def start
@@ -22,5 +22,11 @@ private
 
   def player_params
     params.require(:player).permit(:life, :strength, :skill, :exp, :erapse, :cleared, :user_id, :start)
+  end
+
+  def login_check
+    unless logged_in?
+      return redirect_to root_path
+    end
   end
 end
