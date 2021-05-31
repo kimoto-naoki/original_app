@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_121516) do
+ActiveRecord::Schema.define(version: 2021_05_27_060251) do
+
+  create_table "players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "level", default: 1, null: false
+    t.integer "stamina", default: 100, null: false
+    t.integer "life", default: 100, null: false
+    t.integer "strength", default: 100, null: false
+    t.integer "skill", default: 100, null: false
+    t.integer "exp", default: 0, null: false
+    t.integer "elapse", default: 0, null: false
+    t.integer "cleared", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.string "start", default: "false", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "player_name", null: false
@@ -19,4 +35,5 @@ ActiveRecord::Schema.define(version: 2021_05_24_121516) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "players", "users"
 end
