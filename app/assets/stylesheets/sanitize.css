@@ -11,6 +11,16 @@
   box-sizing: border-box;
 }
 
+/* ここから自作 */
+.container{
+  display: flex;
+}
+p{
+  margin-bottom: 0;
+}
+/* ここまで自作 */
+
+
 /**
  * 1. Add text decoration inheritance in all browsers (opinionated).
  * 2. Add vertical alignment inheritance in all browsers (opinionated).

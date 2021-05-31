@@ -1,13 +1,13 @@
 ## usersテーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| player_name        | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false,              |
+| Column             | Type    | Options                     |
+| ------------------ | ------- | --------------------------- |
+| player_name        | string  | null: false                 |
+| password           | string  | null: false                 |
+| encrypted_password | string  | null: false                 |
 
 ### Association
-- has_many :statuses
+- has_one :player
 
 
 
@@ -15,15 +15,16 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| level     | integer    | null: false                    |
-| stamina   | integer    | null: false                    |
-| life      | integer    | null: false                    |
-| strength  | integer    | null: false                    |
-| skill     | integer    | null: false                    |
+| level     | integer    | null: false, default: 1        |
+| stamina   | integer    | null: false, default: 100      |
+| life      | integer    | null: false, default: 100      |
+| strength  | integer    | null: false, default: 100      |
+| skill     | integer    | null: false, default: 100      |
 | exp       | integer    | null: false, default: 0        |
 | elapse    | integer    | null: false, default: 0        |
 | cleared   | integer    | null: false, default: 0        |
 | user      | references | null: false, foreign_key: true |
+| start     | string     | null: false, default: "false"  |
 
 ### Association
 - belongs_to :user
@@ -37,11 +38,11 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| stock1    | string     |                                |
-| stock2    | string     |                                |
-| stock3    | string     |                                |
-| stock4    | string     |                                |
-| stock5    | string     |                                |
+| stock1    | string     | default: "-未所持-"             |
+| stock2    | string     | default: "-未所持-"             |
+| stock3    | string     | default: "-未所持-"             |
+| stock4    | string     | default: "-未所持-"             |
+| stock5    | string     | default: "-未所持-"             |
 | player    | references | null: false, foreign_key: true |
 
 ### Association
@@ -53,7 +54,7 @@
 
 | Column        | Type       | Options                  |
 | ------------- | ---------- | ------------------------ |
-| straw         | string     |                          |
+| key_item      | string     | default: "---"           |
 | phase         | string     | default: "start"         |
 | growth_type   | string     | default: "normal"        |
 | player        | references | null: false, foreign_key |
@@ -67,9 +68,9 @@
 
 | Column       | Type        | Options                  |
 | ------------ | ----------- | ------------------------ |
-| main_ability | string      |                          |
-| sub_ability  | string      |                          |
-| player        | references | null: false, foreign_key |
+| main_ability | string      | default: "nothing"       |
+| sub_ability  | string      | default: "nothing"       |
+| player       | references  | null: false, foreign_key |
 
 ### Association
 - belongs_to :player

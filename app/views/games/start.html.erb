@@ -1,0 +1,22 @@
+<div class="start-input">
+  <h2>能力値ボーナス入力</h2>
+  <h5>好きな能力値に付与してください</h5>
+  <h5>ボーナス無しで始めることもできます</h5>
+  <h4>残り <span id="point"></span> ポイント</h4>
+  <%= form_with(url: start_path, model: @player, local: true, class: "start-form") do |f| %>
+  <div class="container">
+    <div class="input_area"><p>生命力</p>
+      <%= f.number_field :life, step: 1, min: @player.life, class: "bonus-input", id:"bonus-input-1" %>
+    </div>
+    
+    <div class="input_area"><p>腕力</p>
+      <%= f.number_field :strength, step: 1, min: @player.strength, class: "bonus-input", id:"bonus-input-2" %>
+    </div>
+    
+    <div class="input_area"><p>技術力</p>
+      <%= f.number_field :skill, step: 1, min: @player.skill, class: "bonus-input", id:"bonus-input-3" %>
+    </div>    
+  </div>
+    <%= f.submit "これで決定！", id: "submit" %>
+  <% end %>
+</div>
