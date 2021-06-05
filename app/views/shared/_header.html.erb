@@ -1,0 +1,14 @@
+<div class="header-wrapper">
+  <div class="header-left">
+    <%= link_to "HOME", root_path, id: "homebtn" %>
+  </div>
+  <div class="header-right">
+    <% if logged_in? %>
+      <%= link_to "ログアウト", logout_path, method: :delete, class: "sessionbtn" %>
+    <% else %>
+      <%= link_to "ログイン", login_path, class: "sessionbtn" %>
+      <%= link_to "新規登録", new_user_path, class: "sessionbtn" %>
+    <% end %>
+  </div>
+</div>
+<div id="empty"></div>

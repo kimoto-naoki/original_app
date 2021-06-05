@@ -1,10 +1,23 @@
-<div class="wrapper index">
+<div class="wrapper adventure">
+  <div class="adventure-box">
+    
+      <%= render "shared/map_1", map: @map_data %>
+
+  </div>  
+</div>
+<div class="status-btn-box">
   <div id="status-btn" class="btn status">
     <h3>ステータス</h3>
   </div>
-  <div id="adventure-btn" class="btn status">
-    <%= link_to '冒険', adventure_path %>
-  </div>
+</div>
+
+<div class="ready-btn" id=<%= @map_number %>>Ready</div>
+
+<div class="key">
+    <div class="btn btn2" id="up-key">▲</div>
+    <div class="btn btn2" id="right-key">▶︎</div>
+    <div class="btn btn2" id="under-key">▼</div>
+    <div class="btn btn2" id="left-key">◀︎</div>
 </div>
 
 <div id="side-menu" class="off">
@@ -20,3 +33,6 @@
       
   </div>
 </div>
+
+
+<div id="modal"></div>

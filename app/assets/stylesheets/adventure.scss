@@ -1,0 +1,123 @@
+@mixin key-common($top,$left,$active){
+  position: relative;
+  top: $top;
+  left: $left;
+  &:active{
+    top: $active;
+  }
+}
+@mixin chip-value($color){
+  background-color:$color;
+  width: 32px;
+  height: 32px;
+}
+@mixin grid{
+  border: 1px solid #555555;
+}
+
+.adventure{
+  background-color: #cccccc;  
+}
+
+.adventure-box{
+  padding: 32px;
+  width: 480px;
+  height: 480px;
+  background-color: black;
+  .map-chip{
+    display: flex;
+    width: 416px;
+    height: 32px;
+    .value-0{
+      @include chip-value(#000000);
+    }
+    .value-1{
+      @include chip-value(#ffffff);
+      @include grid;
+    }
+    .value-2{
+      @include chip-value(#eeeeee);
+      border: 5px double blue;
+    }
+    .value-3{
+      @include chip-value(#ffffff);
+      @include grid;
+    }
+    .value-4{
+      @include chip-value(#ffff00);
+      @include grid;
+    }
+    .value-5{
+      @include chip-value(#ff0000);
+      @include grid;
+    }
+  }
+}
+.ready-btn{
+  display: inline-block;
+  box-shadow: 0 2px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: cadetblue;
+  text-align: center;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  z-index: 91;
+  &:hover{
+    opacity: 1;
+    filter: brightness(1.25);
+  }
+  &:active{
+    box-shadow: none;
+    top: 45.5%;
+  }
+}
+.status-btn-box{
+  position: fixed;
+  top: 30%;
+  left: 75.5%;
+}
+
+.key{
+  width: 240px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 47%;
+  left: 70%;
+  z-index: 10;
+  div{
+    background-color: #eeeeee;
+    width: 100px;
+    height: 28px;
+    text-align: center;
+  }
+  #up-key{
+    @include key-common(-18%, 40%, -16%);
+  }
+  #right-key{
+    @include key-common(5%, 45%, 7%);
+  }
+  #under-key{
+    @include key-common(28%, -10%, 30%);
+  }
+  #left-key{
+    @include key-common(5%, -65%, 7%);
+  }
+}
+
+#modal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 90;
+}

@@ -2,6 +2,7 @@
   <h2>能力値ボーナス入力</h2>
   <h5>好きな能力値に付与してください</h5>
   <h5>ボーナス無しで始めることもできます</h5>
+  <h6>※初期値より低くすることはできません</h6>
   <h4>残り <span id="point"></span> ポイント</h4>
   <%= form_with(url: start_path, model: @player, local: true, class: "start-form") do |f| %>
   <div class="container">
@@ -17,6 +18,7 @@
       <%= f.number_field :skill, step: 1, min: @player.skill, class: "bonus-input", id:"bonus-input-3" %>
     </div>    
   </div>
-    <%= f.submit "これで決定！", id: "submit" %>
+    <%= f.submit "これで決定！", id: "submit", class: "btn" %>
+    <p id="error-p">残りポイントが0〜10ポイントになるように割り振ってください</p>
   <% end %>
 </div>

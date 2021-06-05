@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_060251) do
+ActiveRecord::Schema.define(version: 2021_05_31_092814) do
+
+  create_table "abilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "main_ability", default: "nothing"
+    t.string "sub_ability", default: "nothing"
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_abilities_on_player_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "stock1", default: "-未所持-"
+    t.string "stock2", default: "-未所持-"
+    t.string "stock3", default: "-未所持-"
+    t.string "stock4", default: "-未所持-"
+    t.string "stock5", default: "-未所持-"
+    t.bigint "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_items_on_player_id"
+  end
 
   create_table "players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "level", default: 1, null: false
@@ -20,9 +41,10 @@ ActiveRecord::Schema.define(version: 2021_05_27_060251) do
     t.integer "skill", default: 100, null: false
     t.integer "exp", default: 0, null: false
     t.integer "elapse", default: 0, null: false
-    t.integer "cleared", default: 0, null: false
+    t.string "phase", default: "start", null: false
+    t.string "flag_item", default: "---"
+    t.string "growth_type", default: "normal"
     t.bigint "user_id", null: false
-    t.string "start", default: "false", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_players_on_user_id"
@@ -35,5 +57,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_060251) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "abilities", "players"
+  add_foreign_key "items", "players"
   add_foreign_key "players", "users"
 end

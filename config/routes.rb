@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users, only: [:new, :create]
 
+  get 'route', to: 'games#route'
   resources :games, only: [:index]
   get '/start', to: 'games#start'
-  patch '/start', to: 'games#beginning'    
+  patch '/start', to: 'games#beginning'
+  get '/adventure', to: 'games#adventure'
 end
