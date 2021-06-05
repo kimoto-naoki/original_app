@@ -12,11 +12,48 @@
 }
 
 /* ここから自作 */
+.wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 .container{
   display: flex;
 }
+.container-clm{
+  display: flex;
+  flex-direction: column;
+}
 p{
   margin-bottom: 0;
+}
+a{
+  text-decoration: none;
+}
+#empty{
+  width: 100%;
+  height: 50px;
+}
+.btn{
+  display: inline-block;
+  box-shadow: 0 2px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+.btn:hover{
+  opacity: 0.7;
+}
+.btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+  opacity: 1;
+}
+.btn2{
+  box-shadow: 0 3px;
 }
 /* ここまで自作 */
 

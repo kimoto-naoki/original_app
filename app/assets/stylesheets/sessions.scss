@@ -1,3 +1,15 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new{
+  flex-direction: column;
+  div{
+    display: flex;
+    flex-direction: column;
+    input{
+      height: 28px;
+      font-size: 16px;
+    }
+  }
+  .submit{
+    margin: 20px auto;
+    width: 50%;
+  }
+}

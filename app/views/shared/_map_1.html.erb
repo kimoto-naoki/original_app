@@ -1,0 +1,20 @@
+<% x = 0 %>
+
+<% for i in 0..12 %>
+  <div class="map-chip">
+    <div class="value-<%= map[i][0] %>" id="<%= x %>-0"></div>
+    <div class="value-<%= map[i][1] %>" id="<%= x %>-1"></div>
+    <div class="value-<%= map[i][2] %>" id="<%= x %>-2"></div>
+    <div class="value-<%= map[i][3] %>" id="<%= x %>-3"></div>
+    <div class="value-<%= map[i][4] %>" id="<%= x %>-4"></div>
+    <div class="value-<%= map[i][5] %>" id="<%= x %>-5"></div>
+    <div class="value-<%= map[i][6] %>" id="<%= x %>-6"></div>
+    <div class="value-<%= map[i][7] %>" id="<%= x %>-7"></div>
+    <div class="value-<%= map[i][8] %>" id="<%= x %>-8"></div>
+    <div class="value-<%= map[i][9] %>" id="<%= x %>-9"></div>
+    <div class="value-<%= map[i][10] %>" id="<%= x %>-10"></div>
+    <div class="value-<%= map[i][11] %>" id="<%= x %>-11"></div>
+    <div class="value-<%= map[i][12] %>" id="<%= x %>-12"></div>
+  </div>
+  <% x += 1 %>
+<% end %>
