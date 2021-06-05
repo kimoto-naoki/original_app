@@ -13,23 +13,23 @@
 
 ## playersテーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| level     | integer    | null: false, default: 1        |
-| stamina   | integer    | null: false, default: 100      |
-| life      | integer    | null: false, default: 100      |
-| strength  | integer    | null: false, default: 100      |
-| skill     | integer    | null: false, default: 100      |
-| exp       | integer    | null: false, default: 0        |
-| elapse    | integer    | null: false, default: 0        |
-| cleared   | integer    | null: false, default: 0        |
-| user      | references | null: false, foreign_key: true |
-| start     | string     | null: false, default: "false"  |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| level       | integer    | null: false, default: 1        |
+| stamina     | integer    | null: false, default: 100      |
+| life        | integer    | null: false, default: 100      |
+| strength    | integer    | null: false, default: 100      |
+| skill       | integer    | null: false, default: 100      |
+| exp         | integer    | null: false, default: 0        |
+| elapse      | integer    | null: false, default: 0        |
+| phase       | string     | null: false, default: "start"  |
+| flag_item   | string     | default: "---"                 |
+| growth_type | string     | default: "normal"              |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_one    :item
-- has_one    :state
 - has_one    :ability
 
 
@@ -47,21 +47,6 @@
 
 ### Association
 - belongs_to :player
-
-
-
-## statesテーブル
-
-| Column        | Type       | Options                  |
-| ------------- | ---------- | ------------------------ |
-| key_item      | string     | default: "---"           |
-| phase         | string     | default: "start"         |
-| growth_type   | string     | default: "normal"        |
-| player        | references | null: false, foreign_key |
-
-### Association
-- belongs_to :player
-
 
 
 ## abilitysテーブル
