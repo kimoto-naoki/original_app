@@ -16,7 +16,7 @@
 }
 
 .adventure{
-  background-color: #cccccc;  
+  background-color: #cccccc;
 }
 
 .adventure-box{
@@ -55,6 +55,7 @@
 }
 .ready-btn{
   display: inline-block;
+  color: #000000;
   box-shadow: 0 2px;
   border: 1px solid black;
   border-radius: 3px;
@@ -79,7 +80,7 @@
 .status-btn-box{
   position: fixed;
   top: 30%;
-  left: 75.5%;
+  left: 75%;
 }
 
 .key{
@@ -120,4 +121,11 @@
   left: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 90;
+}
+
+.secret{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

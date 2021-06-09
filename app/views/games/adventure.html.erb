@@ -1,3 +1,5 @@
+<%= render "shared/battle_mode" %>
+
 <div class="wrapper adventure">
   <div class="adventure-box">
     
@@ -11,7 +13,7 @@
   </div>
 </div>
 
-<div class="ready-btn" id=<%= @map_number %>>Ready</div>
+<div class="ready-btn" id=<%=@map_number%>>Ready</div>
 
 <div class="key">
     <div class="btn btn2" id="up-key">▲</div>
@@ -30,9 +32,29 @@
     <div><h3>生命力　 <span><%= @player.life %></span></h3></div>
     <div><h3>腕力　　  <span><%= @player.strength %></span></h3></div>
     <div><h3>技術力　  <span><%= @player.skill %></span></h3></div>
+
       
   </div>
 </div>
 
-
 <div id="modal"></div>
+
+<div class="secret">
+  <%= form_with model: @players do |f| %>
+    <%= f.text_area :level, value: @player.level %>
+    <%= f.text_area :life, value: @player.life %>
+    <%= f.text_area :strength, value: @player.strength %>
+    <%= f.text_area :skill, value: @player.skill %>
+    <%= f.text_area :stock1, value: @player.item.stock1 %>
+    <%= f.text_area :stock2, value: @player.item.stock2 %>
+    <%= f.text_area :stock3, value: @player.item.stock3 %>
+    <%= f.text_area :stock4, value: @player.item.stock4 %>
+    <%= f.text_area :stock5, value: @player.item.stock5 %>
+  <% end %>
+</div>
+<div class="window" id="field-announce">
+  <div>  
+    <div id="field-text"></div>
+    <div id="confirm-btn">確認</div>
+  </div>
+</div>
