@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../main")
+require("../map_1")
 require('jquery')
 
 
