@@ -21,12 +21,19 @@ class GamesController < ApplicationController
 
   def adventure
     map_1_create
+    # respond_to do |format|
+    #   format.html{render 'games/adventure.html.erb'}
+    #   format.js{render 'games/adventure.js.erb'}
+    # end    
+  end
+
+  def create
   end
 
 private
 
   def player_params
-    params.require(:player).permit(:life, :strength, :skill, :exp, :erapse, :phase, :flag_item, :growth_type, :user_id)
+    params.require(:player).permit(:level, :life, :strength, :skill, :exp, :erapse, :phase, :flag_item, :growth_type, :user_id)
   end
 
   def login_check
