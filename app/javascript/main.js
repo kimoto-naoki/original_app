@@ -1,3 +1,5 @@
+// import * as Battle from 'battle.js';
+
 // 以下statビューの処理
 const counter = (a,b,c,arrayA) => {
   let arrayB = [a, b, c].map(Number);
@@ -68,6 +70,10 @@ window.addEventListener('load',start);
 
 // ここからjQuery導入
 $(function() {
+  
+  // let giveDamage = 0
+  // let receiveDamage = 0
+  // let enemy_0 = enemyData.slice()
   $('#status-btn').on('click',function(){
     if($('#side-menu').hasClass('off')){
       $('#side-menu').animate({left:'+=340'},150).removeClass('off');
@@ -81,63 +87,68 @@ $(function() {
   });
 
   
-  $('#map-1').on('click',function(){
-    let playerPosition = [12,12];
-    let mapData = [
-      [1,1,1,1,1,1,1,1,1,1,1,1,3],
-      [1,0,0,0,0,0,0,0,0,0,0,0,0],
-      [1,1,1,1,1,0,1,1,1,1,1,1,1],
-      [1,0,0,0,0,0,1,0,0,0,0,0,0],
-      [1,1,1,1,5,1,1,1,1,1,1,1,1],
-      [0,0,0,0,1,0,0,0,0,0,0,0,0],
-      [1,0,1,1,1,0,1,0,1,1,1,1,4],
-      [1,0,0,0,1,0,1,0,1,0,0,0,0],
-      [1,0,1,0,1,1,1,1,1,0,1,0,1],
-      [1,0,1,0,0,0,1,0,0,0,1,0,1],
-      [1,1,1,0,1,1,1,1,1,0,1,1,1],
-      [0,0,1,0,1,0,0,0,0,0,1,0,1],
-      [1,1,1,1,1,1,1,1,1,1,1,0,1]
-    ];
-    $(this).hide();
-    $('#modal').hide();
-    $('#up-key').on('click',function(){
-      var movePosition = [(playerPosition[0]-1), playerPosition[1]];
-      if (mapData[movePosition[0]][movePosition[1]] === 1){
-        $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
-        $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
-        playerPosition[0] = movePosition[0];
-      }else if(mapData[movePosition[0]][movePosition[1]] === 5){
+  // $('#map-1').on('click',function(){
+  //   let playerPosition = [12,12];
+  //   let movePosition;
+
+
+    
+  //   $(this).hide();
+  //   $('#modal').hide();
+  //   $('#up-key').on('click',function(){
+  //     movePosition = [(playerPosition[0]-1), playerPosition[1]];
+  //     if (mapData[movePosition[0]][movePosition[1]] === 1){
+  //       $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
+  //       $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
+  //       mapData[playerPosition[0]][playerPosition[1]] = 1;
+  //       playerPosition[0] = movePosition[0];
+  //     }else if(mapData[movePosition[0]][movePosition[1]] === 5){
         
-      }
-    });
+        
+  //     }
+  //   });
 
-    $('#right-key').on('click',function(){
-      var movePosition = [(playerPosition[0]), playerPosition[1]+1];
-      if (mapData[movePosition[0]][movePosition[1]] === 1){
-        $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
-        $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
-        playerPosition[1] = movePosition[1];
-      }
-    });
+  //   $('#right-key').on('click',function(){
+  //     movePosition = [(playerPosition[0]), playerPosition[1]+1];
+  //     if (mapData[movePosition[0]][movePosition[1]] === 1){
+  //       $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
+  //       $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
+  //       mapData[playerPosition[0]][playerPosition[1]] = 1;
+  //       playerPosition[1] = movePosition[1];
+  //     }
+  //   });
 
-    $('#under-key').on('click',function(){
-      var movePosition = [(playerPosition[0]+1), playerPosition[1]];
-      if (mapData[movePosition[0]][movePosition[1]] === 1){
-        $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
-        $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
-        playerPosition[0] = movePosition[0];
-      }
-    });
+  //   $('#under-key').on('click',function(){
+  //     movePosition = [(playerPosition[0]+1), playerPosition[1]];
+  //     if (mapData[movePosition[0]][movePosition[1]] === 1){
+  //       $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
+  //       $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
+  //       mapData[playerPosition[0]][playerPosition[1]] = 1;
+  //       playerPosition[0] = movePosition[0];
+  //     }
+  //   });
 
-    $('#left-key').on('click',function(){
-      var movePosition = [(playerPosition[0]), playerPosition[1]-1];
-      if (mapData[movePosition[0]][movePosition[1]] === 1){
-        $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
-        $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
-        playerPosition[1] = movePosition[1];
-      }
-    });
+  //   $('#left-key').on('click',function(){
+  //     movePosition = [(playerPosition[0]), playerPosition[1]-1];
+  //     if (mapData[movePosition[0]][movePosition[1]] === 1){
+  //       $(`#${movePosition[0]}-${movePosition[1]}`).removeClass('value-1').addClass('value-2');
+  //       $(`#${playerPosition[0]}-${playerPosition[1]}`).removeClass('value-2').addClass('value-1');
+  //       mapData[playerPosition[0]][playerPosition[1]] = 1;
+  //       playerPosition[1] = movePosition[1];
+  //     }else if(mapData[movePosition[0]][movePosition[1]] === 5){        
+        
+  //       encount(enemy_0.name, enemy_0.image)
+        
+        
+  //       // gon.mapData[movePosition[0]][movePosition[1]] = 1; バトル終了後に実行
+  //     }
+  //   });
 
-  });
+  // });
+
+
+  
+ 
+
   
 });
