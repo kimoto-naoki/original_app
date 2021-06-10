@@ -21,6 +21,7 @@ class GamesController < ApplicationController
 
   def adventure
     map_1_create
+    @items = Item.find(@player.id)
     # respond_to do |format|
     #   format.html{render 'games/adventure.html.erb'}
     #   format.js{render 'games/adventure.js.erb'}

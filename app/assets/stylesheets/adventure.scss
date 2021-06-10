@@ -40,7 +40,7 @@
       border: 5px double blue;
     }
     .value-3{
-      @include chip-value(#ffffff);
+      @include chip-value(#7de7a1);
       @include grid;
     }
     .value-4{
