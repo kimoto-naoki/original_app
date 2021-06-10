@@ -1,5 +1,14 @@
 module GamesHelper
 
+  def phase_check
+    case @player.phase
+    when "index"
+      render :index
+    when "start"
+      render :start
+    end
+  end
+
   def map_1_create
     @map_number = 'map-1'
     @map_data = [

@@ -3,8 +3,8 @@ class GamesController < ApplicationController
   before_action :current_user
   before_action :set_player
 
-  def route    
-    render @player.phase
+  def route
+    phase_check
   end
 
 
@@ -13,7 +13,7 @@ class GamesController < ApplicationController
 
   def beginning
     @player.update(player_params.merge(phase: params[:phase]))    
-    render @player.phase
+    phase_check
   end
 
   def index
