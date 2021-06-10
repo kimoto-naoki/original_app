@@ -8,7 +8,6 @@ $(function() {
 
   // エンカウント処理
   function encount(name, image) {
-    // $('#battle-ground').css('display','block');
     $('#battle-ground').show();
     $('#announce').show();
     $('#enemy').attr('src', image);
@@ -102,7 +101,6 @@ $(function() {
     return new Promise((resolve)=>{
       $('#battle-ground').show()
       $('#field-announce').show()
-      // $('#confirm-btn').show()
       $('#field-text').html(`${item}(くまうち)を手に入れた！<br>${itemText}`);
       $('#item1').html(`<h3>${item}</h3>`);
       $('#use-item1').text(item);
@@ -153,7 +151,7 @@ $(function() {
 
   // マップ移動に使う変数
   let playerPosition = [12,12];
-  // let playerPosition = [6,10];
+  // let playerPosition = [6,10]; #テストプレイ用の座標
   let movePosition;
   let mapData =  [
     [1,1,1,1,1,1,1,1,1,1,1,1,1],
