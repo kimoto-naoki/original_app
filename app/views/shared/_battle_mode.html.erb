@@ -17,8 +17,32 @@
       <ul class="command-list">
         <li id="command-defence">ぼうぎょ</li>
         <li id="command-item">どうぐ</li>
+        <li class="command-reserve"></li>
+      </ul>
+    </div>
+
+    <div id="use-item-index">
+      <ul class="use-item-list">
+        <li id="use-item1"><%= item.stock1 %></li>
+        <li id="use-item3"><%= item.stock3 %></li>
+        <li id="use-item5"><%= item.stock5 %></li>
+      </ul>
+      <ul class="use-item-list">
+        <li id="use-item2"><%= item.stock2 %></li>
+        <li id="use-item4"><%= item.stock4 %></li>
+        <li class="command-reserve" id="back-btn-item">もどる</li>
       </ul>        
     </div>
+
+    <div id="use-skill-index">
+      <ul class="use-skill-list">
+        <li id="use-skill">※まだ使えません</li>
+      </ul>
+      <ul class="use-skill-list">
+        <li class="command-reserve" id="back-btn-skill">もどる</li>
+      </ul>
+    </div>
+
   </div>
 
   <div id="life-display">
