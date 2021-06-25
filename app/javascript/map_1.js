@@ -150,7 +150,7 @@ $(function() {
   // バトルに使う変数
 
   // マップ移動に使う変数
-  let playerPosition = [12,12];
+  let playerPosition = [8,6];
   // let playerPosition = [6,10]; #テストプレイ用の座標
   let movePosition;
   let mapData =  [
